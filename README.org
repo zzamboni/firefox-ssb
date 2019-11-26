@@ -1,0 +1,19 @@
+#+title: Create a Firefox-based SSB
+#+author: Diego Zamboni
+
+This is a simple script to create a crude Firefox-based Site-Specific Browser (SSB).
+
+*Note:* this was put together over a day or so, so it's extremely crude but it mostly works for my needs. However, there are some snags. In particular, the created SSBs are not properly signed, which means that 1Password refuses to work with them. If you have any ideas for how to fix this, I'd love to hear from you.
+
+I use the SSBs created by this script together with [[http://www.hammerspoon.org/][Hammerspoon]] and the [[https://www.hammerspoon.org/Spoons/URLDispatcher.html][URLDispatcher]] spoon to open different websites using different browsers. You can see my configuration here: https://github.com/zzamboni/dot-hammerspoon/blob/master/init.org#url-dispatching-to-site-specific-browsers
+
+Usage:
+#+begin_src console
+     make-firefox-ssb.sh NewApp [iconfile] [defaultURL]
+#+end_src
+
+- =NewApp= is the name that the new app will have. It will be a copy of =/Applications/Firefox.app= (which needs to be installed beforehand) with the necessary modifications.
+- =iconfile= has to be (for now) a local image file containing the icon for the new app.
+- =defaultURL= is the URL that will be opened upon startup by the new app.
+
+The new app will be placed under =DESTDIR=, defaults to =~/Applications/FirefoxSSBs/= (edit the script to change it).
